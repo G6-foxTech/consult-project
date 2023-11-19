@@ -2,16 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 
-const tasksController = require('./controllers/tasksController');
-const tasksMiddleware = require('./middlewares/tasksMiddleware');
+const enderecoController = require('./controllers/enderecoController');
+const addressMiddleware = require('./middlewares/enderecoMiddleware');
 
-router.get('/tasks', tasksController.getAll);
-router.post('/tasks', tasksMiddleware.validateFieldTitle, tasksController.createTask);
-router.delete('/tasks/:id', tasksController.deleteTask);
-router.put('/tasks/:id', 
-    tasksMiddleware.validateFieldTitle, 
-    tasksMiddleware.validateFieldStatus, 
-    tasksController.updateTask
+router.get('/address', enderecoController.getAll);
+router.post('/address', enderecoMiddleware.validateFieldTitle, enderecoController.createTask);
+router.delete('/address/:id', enderecoController.deleteTask);
+router.put('/address/:id', 
+    addressMiddleware.validateFieldTitle, 
+    addressMiddleware.validateFieldStatus, 
+    enderecoController.updateTask
 );
 
 module.exports = router;
