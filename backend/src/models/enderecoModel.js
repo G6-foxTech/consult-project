@@ -1,40 +1,47 @@
-const connection = require('./connection');
+const { DataTypes, Model } = require('sequelize');
 
-const getAll =  async () => { 
-    const [tasks] = await connection.execute('SELECT * FROM tasks');
-    return tasks;
-};
+class tbl_endereco extends Model {
+    static init(sequelize) {
+        super.init({
+            id_endereco: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
+            numero: {
+                type: DataTypes.STRING(10),
+                allowNull: false
+            },
+            logradouro: {
+                type: DataTypes.STRING(100),
+                allowNull: false
+            },
+            bairro: {
+                type: DataTypes.STRING(100),
+                allowNull: false
+            },
+            cidade: {
+                type: DataTypes.STRING(100),
+                allowNull: false
+            },
+            complemento: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            cep: {
+                type: DataTypes.STRING(9),
+                allowNull: false
+            },
+            uf: {
+                type: DataTypes.STRING(2),
+                allowNull: false
+            },
+        }, {
+            sequelize,
+            tableName: 'tbl_endereco',
+            timestamps: false,
+        });
+    }
+}
 
-const createTask = async (task) => {
-
-    const { title } = task;
-
-    const dateUTC = new Date(Date.now()).toUTCString();
-
-    const query = 'INSERT INTO tasks(title, status, created_at) values (?,?,?)';
-
-    const [createdTask] = await connection.execute(query, [title, 'pendente', dateUTC]);
-    return {insertId: createdTask.insertId};
-};
-
-const deleteTask = async (id) => {
-
-    const removedTask = await connection.execute('DELETE FROM tasks WHERE  id = ?', [id]);
-    return removedTask;
-};
-
-const updateTask = async (id, task) => {
-    const { title, status } = task;
-    
-    const query = 'UPDATE tasks SET title = ?, status = ? WHERE id = ?';
-    
-    const updatedTask = await connection.execute(query, [title, status , id]);
-    return updatedTask;
-};
-
-module.exports = {
-    getAll,
-    createTask,
-    deleteTask,
-    updateTask
-};
+module.exports = tbl_endereco;
