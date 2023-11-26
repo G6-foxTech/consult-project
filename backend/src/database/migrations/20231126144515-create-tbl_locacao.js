@@ -4,44 +4,39 @@ const { QueryInterface, Sequelize } = require("sequelize");
 
 module.exports = {
   up:  (QueryInterface, Sequelize) => {
-     return QueryInterface.createTable('tbl_consultorio', {
-        id_consultorio: {
+     return QueryInterface.createTable('tbl_locacao', {
+        id_locacao: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true
         },
-        nome: {
+        dataInicio: {
             type: Sequelize.STRING(100),
             allowNull: false
         },
-        email: {
+        dataTermino: {
             type: Sequelize.STRING(50),
             allowNull: false
         },
-        dias_disponiveis: {
-            type: Sequelize.STRING,
+        valor_contrato: {
+            type: Sequelize.DECIMAL(10,2),
             allowNull: false
         },
-        horarios_disponiveis: {
+        periodo_aluguel: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
-        telefone: {
-          type: Sequelize.STRING(20),
-          allowNull: false
-        },
-        numero_sala: {
-          type: Sequelize.STRING(10),
-          allowNull: false
-        },
-        tipo_sala: {
-          type: Sequelize.STRING(10),
-          allowNull: false
-        },
-        id_endereco: {
+        id_profissional: {
           type: Sequelize.INTEGER,
           allowNull: true,
-          references: { model: 'tbl_endereco', key: 'id_endereco' },
+          references: { model: 'tbl_profissional', key: 'id_profissional' },
+          onUpdate: 'SET NULL',
+          onDelete: 'SET NULL'
+        },
+        id_consultorio: {
+          type: Sequelize.INTEGER,
+          allowNull: true,
+          references: { model: 'tbl_consultorio', key: 'id_consultorio' },
           onUpdate: 'SET NULL',
           onDelete: 'SET NULL'
         }
@@ -49,6 +44,6 @@ module.exports = {
   },
 
   down:  (QueryInterface, Sequelize) => {
-    return QueryInterface.dropTable('tbl_consultorio');
+    return QueryInterface.dropTable('tbl_locacao');
   },
 };

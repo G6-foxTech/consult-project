@@ -14,7 +14,7 @@ module.exports = {
             const empresa = await empresaModel.findAll({where: {id_empresa: req.params.id_empresa}});
             return res.json(empresa);
         } catch(error) {
-            return res.status(404).json({message: 'empresa não encontrado'});
+            return res.status(404).json({message: 'Empresa não encontrado'});
         }
         
     },
@@ -47,7 +47,7 @@ module.exports = {
         const empresa = await empresaModel.findByPk(id_empresa);
 
         if(!empresa) {
-            return res.status(404).json({ message: 'empresa não encontrado '});
+            return res.status(404).json({ message: 'Empresa não encontrado '});
         }
 
         await empresa.destroy();
