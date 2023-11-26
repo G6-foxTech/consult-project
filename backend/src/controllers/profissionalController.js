@@ -22,6 +22,10 @@ module.exports = {
     async create(req, res) {
         const { nome, especialidade, formacao, email, telefone, crm_crd_crp, id_endereco } = req.body;
 
+        if((await profissionalModel.findOne({ $or: [{ email }]}))) {
+            return res.status(400).json({ error: 'E-mail já cadastrado.' }); 
+        }
+        
         let createprofissional;
         if(id_endereco) {
 
@@ -29,8 +33,11 @@ module.exports = {
                 return res.status(400).json({ error: 'Endereço não encontrado.' }); 
             }
 
+           
+
             createprofissional = await profissionalModel.create({ nome, especialidade, formacao, email, telefone, crm_crd_crp, id_endereco });
         } else {
+
             createprofissional = await profissionalModel.create({ nome, especialidade, formacao, email, telefone, crm_crd_crp });
         }
         
