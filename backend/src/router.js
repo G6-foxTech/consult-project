@@ -10,8 +10,9 @@ const usuarioController = require('./controllers/usuarioController');
 const consultorioController = require('./controllers/consultorioController');
 const locacaoController = require('./controllers/locacaoController');
 const consultorioEmpresaController = require('./controllers/consultorioEmpresa.controller');
+const authController = require('./controllers/authController');
 
-router.get('/', (req, res) => res.send('<h1>Hello World</h1>'));
+router.get('/', (req, res) => res.send('<h1>Forbidden</h1>'));
 
 router.post('/usuario', usuarioController.create);
 router.post('/profissional', profissionalController.create);
@@ -54,5 +55,6 @@ router.delete('/locacao/:id_locacao', locacaoController.delete);
 router.delete('/consultorioEmpresa/:id_consultorio_empresa', consultorioEmpresaController.delete);
 router.delete('/endereco/:id_endereco', enderecoController.delete);
 
+router.post('/login', authController.login);
 
 module.exports = router;
