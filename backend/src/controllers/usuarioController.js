@@ -78,4 +78,8 @@ module.exports = {
             return res.json({message: 'usuario não foi atualizado, pois ele não existe ou foi inserido errado'});
         }
     },
+
+    rotaAutenticada(req, res) {
+        res.status(200).send({message: 'funcionou'});
+    },
 };
