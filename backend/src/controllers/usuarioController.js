@@ -28,7 +28,8 @@ module.exports = {
             return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
         }
 
-        if((await usuarioModel.findOne({ $or: [{ usuario }]}))) {
+        const verificarUsuario = await usuarioModel.findOne({ where: { usuario: usuario }});
+        if(verificarUsuario) {
             return res.status(400).json({ error: 'Usuario já cadastrado.' }); 
         }
 
@@ -58,6 +59,7 @@ module.exports = {
         const Op = Sequelize.Op;
         const { usuario, nome, senha, id_nivel_acesso } = req.body;
         const id = req.params.id_usuario;
+        let passwordHash = await bcrypt.hash(senha, 12);
 
         try {
 
@@ -70,7 +72,7 @@ module.exports = {
             }
 
             await usuarioModel.update(
-                { usuario, nome, senha, id_nivel_acesso }, 
+                { usuario, nome, senha: passwordHash, id_nivel_acesso }, 
                 { where: {id_usuario: {[Op.eq]: id}}});
            
             return res.json({message: 'usuario atualizado com sucesso'});

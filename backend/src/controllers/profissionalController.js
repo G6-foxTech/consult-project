@@ -1,5 +1,6 @@
 const profissionalModel = require('../models/profissionalModel');
 const enderecoModel = require('../models/enderecoModel');
+const bcrypt = require('bcrypt');
 const Sequelize = require('sequelize');
 
 module.exports = {
@@ -20,12 +21,15 @@ module.exports = {
     },
     
     async create(req, res) {
-        const { nome, especialidade, formacao, email, telefone, crm_crd_crp, id_endereco } = req.body;
+        const { nome, especialidade, formacao, email, telefone, crm_crd_crp, senha,id_endereco } = req.body;
 
-        if((await profissionalModel.findOne({ $or: [{ email }]}))) {
+        const verificarProfissional = await profissionalModel.findOne({ where: { email: email }});
+        if(verificarProfissional) {
             return res.status(400).json({ error: 'E-mail já cadastrado.' }); 
         }
         
+        let passwordHash = await bcrypt.hash(senha, 12);
+
         let createprofissional;
         if(id_endereco) {
 
@@ -33,12 +37,10 @@ module.exports = {
                 return res.status(400).json({ error: 'Endereço não encontrado.' }); 
             }
 
-           
-
-            createprofissional = await profissionalModel.create({ nome, especialidade, formacao, email, telefone, crm_crd_crp, id_endereco });
+            createprofissional = await profissionalModel.create({ nome, especialidade, formacao, email, telefone, crm_crd_crp, senha: passwordHash, id_endereco });
         } else {
 
-            createprofissional = await profissionalModel.create({ nome, especialidade, formacao, email, telefone, crm_crd_crp });
+            createprofissional = await profissionalModel.create({ nome, especialidade, formacao, email, telefone, crm_crd_crp, senha: passwordHash});
         }
         
 
@@ -61,9 +63,15 @@ module.exports = {
     async update(req, res) {
         
         const Op = Sequelize.Op;
-        const { nome, especialidade, formacao, email, telefone, crm_crd_crp, id_endereco } = req.body;
+        const { nome, especialidade, formacao, email, telefone, crm_crd_crp, senha, id_endereco } = req.body;
         const id = req.params.id_profissional;
+        let passwordHash = await bcrypt.hash(senha, 12);
 
+        const verificarProfissional = await profissionalModel.findOne({ where: { email: email }});
+        if(verificarProfissional) {
+            return res.status(400).json({ error: 'E-mail já cadastrado.' }); 
+        }
+        
         try {
             if(id_endereco) {
 
@@ -72,11 +80,12 @@ module.exports = {
                 }
 
                 await profissionalModel.update(
-                    { nome, especialidade, formacao, email, telefone, crm_crd_crp, id_endereco }, 
+                    { nome, especialidade, formacao, email, telefone, crm_crd_crp, senha: passwordHash, id_endereco 
+                    }, 
                     { where: {id_profissional: {[Op.eq]: id}}});
             } else {
                 await profissionalModel.update(
-                    { nome, especialidade, formacao, email, telefone, crm_crd_crp }, 
+                    { nome, especialidade, formacao, email, telefone, crm_crd_crp, senha: passwordHash }, 
                     { where: {id_profissional: {[Op.eq]: id}}});
             }
             return res.json({message: 'Profissional atualizado com sucesso'});

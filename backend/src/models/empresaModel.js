@@ -25,6 +25,10 @@ class tbl_empresa extends Model {
                 type: DataTypes.STRING(20),
                 allowNull: false
             },
+            senha: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
             id_endereco: {
                 type: DataTypes.INTEGER,
                 allowNull: true

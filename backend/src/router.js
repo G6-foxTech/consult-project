@@ -15,12 +15,12 @@ const authController = require('./controllers/authController');
 router.get('/', (req, res) => res.send('<h1>Forbidden</h1>'));
 
 router.post('/usuario', usuarioController.create);
-router.post('/profissional', profissionalController.create);
-router.post('/consultorio', consultorioController.create );
-router.post('/empresa', empresaController.create);
-router.post('/locacao', locacaoController.create);
-router.post('/consultorioEmpresa', consultorioEmpresaController.create);
-router.post('/endereco', enderecoController.create);
+router.post('/profissional', authController.verificarToken, profissionalController.create);
+router.post('/consultorio', authController.verificarToken, consultorioController.create );
+router.post('/empresa', authController.verificarToken, empresaController.create);
+router.post('/locacao',  authController.verificarToken,locacaoController.create);
+router.post('/consultorioEmpresa', authController.verificarToken, consultorioEmpresaController.create);
+router.post('/endereco', authController.verificarToken, enderecoController.create);
 
 router.get('/usuario', authController.verificarToken, usuarioController.getAll);
 router.get('/nivelAcesso', authController.verificarToken, nivelAcessoController.getAll);

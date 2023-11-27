@@ -1,5 +1,6 @@
 const empresaModel = require('../models/empresaModel');
 const enderecoModel = require('../models/enderecoModel');
+const bcrypt = require('bcrypt');
 const Sequelize = require('sequelize');
 
 module.exports = {
@@ -20,9 +21,12 @@ module.exports = {
     },
     
     async create(req, res) {
-        const { cnpj, razao_social, email, telefone, id_endereco } = req.body;
+        const { cnpj, razao_social, email, telefone, senha, id_endereco } = req.body;
 
-        if((await empresaModel.findOne({ $or: [{ email }]}))) {
+        let passwordHash = await bcrypt.hash(senha, 12);
+
+        const verificarEmpresa = await empresaModel.findOne({ where: { email: email }});
+        if(verificarEmpresa) {
             return res.status(400).json({ error: 'E-mail já cadastrado.' }); 
         }
         
@@ -33,9 +37,9 @@ module.exports = {
                 return res.status(400).json({ error: 'Endereço não encontrado.' }); 
             }
 
-            createEmpresa = await empresaModel.create({ cnpj, razao_social, email, telefone, id_endereco });
+            createEmpresa = await empresaModel.create({ cnpj, razao_social, email, telefone, senha: passwordHash, id_endereco });
         } else {
-            createEmpresa = await empresaModel.create({ cnpj, razao_social, email, telefone });
+            createEmpresa = await empresaModel.create({ cnpj, razao_social, email,  telefone, senha: passwordHash });
         }
         
 
@@ -58,8 +62,9 @@ module.exports = {
     async update(req, res) {
         
         const Op = Sequelize.Op;
-        const { cnpj, razao_social, email, telefone, id_endereco } = req.body;
+        const { cnpj, razao_social, email, telefone, senha, id_endereco } = req.body;
         const id = req.params.id_empresa;
+        let passwordHash = await bcrypt.hash(senha, 12);
 
         try {
             if(id_endereco) {
@@ -69,11 +74,11 @@ module.exports = {
                 }
 
                 await empresaModel.update(
-                    { cnpj, razao_social, email, telefone, id_endereco }, 
+                    { cnpj, razao_social, email, telefone, senha: passwordHash, id_endereco }, 
                     { where: {id_empresa: {[Op.eq]: id}}});
             } else {
                 await empresaModel.update(
-                    { cnpj, razao_social, email, telefone }, 
+                    { cnpj, razao_social, email, telefone, senha: passwordHash }, 
                     { where: {id_empresa: {[Op.eq]: id}}});
             }
             return res.json({message: 'empresa atualizado com sucesso'});
