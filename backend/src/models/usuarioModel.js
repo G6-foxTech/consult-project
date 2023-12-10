@@ -20,10 +20,6 @@ class tbl_usuario extends Model {
             senha: {
                 type: DataTypes.STRING,
                 allowNull: false
-            },
-            id_nivel_acesso: {
-                type: DataTypes.INTEGER,
-                allowNull: true
             }
         }, {
             sequelize,
