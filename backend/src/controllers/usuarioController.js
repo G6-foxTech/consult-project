@@ -20,11 +20,11 @@ module.exports = {
     },
     
     async create(req, res) {
-        const { usuario, nome, senha, id_nivel_acesso } = req.body;
+        const { usuario, nome, senha,  } = req.body;
 
         let createusuario;
 
-        if(!(await nivelAcessoModel.findByPk(id_nivel_acesso))) {
+        if(!(await nivelAcessoModel.findByPk())) {
             return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
         }
 
@@ -35,7 +35,7 @@ module.exports = {
 
         let passwordHash = await bcrypt.hash(senha, 12);
 
-        createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash, id_nivel_acesso });
+        createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash });
         
 
         return res.status(201).json(createusuario);
@@ -57,13 +57,13 @@ module.exports = {
     async update(req, res) {
         
         const Op = Sequelize.Op;
-        const { usuario, nome, senha, id_nivel_acesso } = req.body;
+        const { usuario, nome, senha } = req.body;
         const id = req.params.id_usuario;
         let passwordHash = await bcrypt.hash(senha, 12);
 
         try {
 
-            if(!(await nivelAcessoModel.findByPk(id_nivel_acesso))) {
+            if(!(await nivelAcessoModel.findByPk())) {
                 return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
             }
         
@@ -72,7 +72,7 @@ module.exports = {
             }
 
             await usuarioModel.update(
-                { usuario, nome, senha: passwordHash, id_nivel_acesso }, 
+                { usuario, nome, senha: passwordHash  }, 
                 { where: {id_usuario: {[Op.eq]: id}}});
            
             return res.json({message: 'usuario atualizado com sucesso'});
