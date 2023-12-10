@@ -27,10 +27,6 @@ class tbl_usuario extends Model {
             timestamps: false,
         });
     }
-
-    static associate(models) {
-        this.belongsTo(models.tbl_nivel_acesso , { foreignKey: 'id_nivel_acesso', as: 'fk_usuario_NivelACesso_1' });
-    }
 }
 
 module.exports = tbl_usuario;

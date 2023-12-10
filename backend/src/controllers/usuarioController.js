@@ -31,7 +31,6 @@ module.exports = {
         let passwordHash = await bcrypt.hash(senha, 12);
 
         createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash });
-        
 
         return res.status(201).json(createusuario);
     },
