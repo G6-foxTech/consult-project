@@ -1,6 +1,5 @@
 const usuarioModel = require('../models/usuarioModel');
 const bcrypt = require('bcrypt');
-const nivelAcessoModel = require('../models/nivelAcessoModel');
 const Sequelize = require('sequelize');
 
 module.exports = {
@@ -23,10 +22,6 @@ module.exports = {
         const { usuario, nome, senha,  } = req.body;
 
         let createusuario;
-
-        if(!(await nivelAcessoModel.findByPk())) {
-            return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
-        }
 
         const verificarUsuario = await usuarioModel.findOne({ where: { usuario: usuario }});
         if(verificarUsuario) {
@@ -62,10 +57,6 @@ module.exports = {
         let passwordHash = await bcrypt.hash(senha, 12);
 
         try {
-
-            if(!(await nivelAcessoModel.findByPk())) {
-                return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
-            }
         
             if(!(await usuarioModel.findOne(usuario))) {
                 return res.status(400).json({ error: 'Usuario já cadastrado.' }); 
