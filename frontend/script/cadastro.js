@@ -19,11 +19,11 @@ async function submitCadastroForm() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Cadastro realizado com sucesso:", data);
-            // Adicione aqui qualquer ação adicional após o cadastro bem-sucedido
+            if(data.data.token) {
+                alert('Cadastro realizado com sucesso!');
+            }
         })
         .catch((error) => {
-            console.error("Erro no cadastro:", error);
-            // Adicione aqui qualquer ação para lidar com erros
+           alert("Erro no cadastro: Usuário existe!");
         });
 }

@@ -7,24 +7,24 @@ async function submitLoginForm() {
         usuario: username,
         senha: password,
     };
-    const loginUrl = "https://health-dhbx.onrender.com/login";
 
-    const loginData = {
-        usuario: data.usuario,
-        senha: data.senha,
-    };
-
-    try {
-        const response = await axios.post(loginUrl, loginData);
-        const token = response.data.data.token;
-
-        localStorage.setItem("token", token);
-        // window.location.href = "/";
-
-        console.log(token);
-        console.log(response);
-    } catch (error) {
-        // Trate os erros aqui, se necessário
-        console.error("Erro ao fazer login:", error);
-    }
+    fetch("https://health-dhbx.onrender.com/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if(data.data.token) {
+                localStorage.setItem("token", data.data.token);
+                alert('Login realizado com sucesso!');
+                window.location.href = '../pages/crudEdereco.html'
+            }
+        })
+        .catch((error) => {
+           alert("Erro no cadastro: Usuário existe!");
+           console.log(error);
+        });
 }
