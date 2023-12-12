@@ -13,9 +13,12 @@ for(const element of toggle) {
 const token = localStorage.getItem('token');
 
 if(token) {
-    loginButton.style.opacity = '0'
-    loginButton.style.visible = 'hidden'
-    loginA.style.cursor = 'default'
-    loginA.href = ''
+    loginA.innerText = 'SAIR'
+}
+
+if(loginA.innerText === 'SAIR') {
+    loginA.addEventListener('click', () =>{
+        localStorage.removeItem('token');
+    })
 }
 
