@@ -1,5 +1,5 @@
-async function submitCadastroForm() {
-    console.log("aaaa");
+function submitCadastroForm() {
+
     let nome = document.getElementById("name").value;
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -19,7 +19,7 @@ async function submitCadastroForm() {
     })
         .then((response) => response.json())
         .then((data) => {
-            if(data.data.token) {
+            if(!data.usuario) {
                 alert('Cadastro realizado com sucesso!');
             }
         })

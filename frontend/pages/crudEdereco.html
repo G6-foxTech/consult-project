@@ -6,6 +6,7 @@
     
     <link rel="stylesheet" href="../styles/menu.css">
     <link rel="stylesheet" href="../styles/table.css">
+    <link rel="stylesheet" href="../styles/modal.css">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -42,24 +43,81 @@
     </header>
 
     <main>
+        <div class="cadastro-crud">
+            <a href="#">Cadastrar Endereço</a>
+        </div>
 
         <div id="table-container">
             <table id="data-table">
                 <thead>
                     <tr>
-                        <th scope="col">numero</th>
+                        <th scope="col">id</th>
+                        <th scope="col">número</th>
                         <th scope="col">logradouro</th>
                         <th scope="col">bairro</th>
                         <th scope="col">cidade</th>
                         <th scope="col">complemento</th>
                         <th scope="col">cep</th>
-                        <th scope="col">uf</th>
+                        <th scope="col">estado</th>
+                        <th scope="col">editar</th>
+                        <th scope="col">excluir</th>
                     </tr>
                 </thead>
                 <tbody>
     
                 </tbody>
             </table>
+        </div>
+
+        <div class="modal">
+            <div class="container-modal">
+                <div class="topo-modal">
+                    <i class="ri-close-line"></i>
+                </div>
+                <h2>CADASTRO DE ENDEREÇO</h2>
+
+                <form action="post">
+
+                    <div class="campo">
+                        <label for="cep">CEP:</label>
+                        <input id="cep" type="text" maxlength="8" onchange="consultaCEP(this.value)">
+                    </div>
+
+                    <div class="campo">
+                        <label for="logradouro">Logradouro:</label>
+                        <input id="logradouro" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="bairro">Bairro:</label>
+                        <input id="bairro" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="cidade">Cidade:</label>
+                        <input id="cidade" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="complemento">Complemento:</label>
+                        <input id="complemento" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="uf">Estado:</label>
+                        <input id="uf" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="numero">Número:</label>
+                        <input id="numero" type="text">
+                    </div>
+
+                    <div class="campo btn">
+                        <a href="#" id="cadastro" onclick="submitCadastroEndereco()">CADASTRAR</a>
+                    </div>
+                </form>
+            </div>
         </div>
 
     </main>
@@ -70,5 +128,6 @@
   crossorigin="anonymous"></script>
     <script src="../script/menu.js"></script>
     <script src="../script/table.js"></script>
+    <script src="../script/modal.js"></script>
 </body>
 </html> 

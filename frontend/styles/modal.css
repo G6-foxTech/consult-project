@@ -1,0 +1,101 @@
+* {
+    font-family: 'Poppins';
+}
+
+.cadastro-crud {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro-crud a {
+    color: white;
+    padding: 10px;
+    background-color: rgb(60, 116, 60);
+    transition: .5s;
+    border-radius: 20px;
+}
+
+.cadastro-crud a:hover {
+    background-color: rgba(60, 116, 60, 0.548);
+}
+
+.modal {
+    display: none;
+    transition: .5s;
+}
+
+.modal.show-modal {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.274);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-modal {
+    background-color: white;
+    width: 500px;
+    height: auto;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.container-modal  h2 {
+    text-align: center;
+}
+
+.container-modal form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.container-modal input {
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#cadastro {
+    background: rgb(38, 138, 68);
+    color: white;
+    border-style: none;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+#cadastro:hover {
+    background: rgba(38, 138, 68, 0.582);
+}
+
+.campo {
+    margin-top: 10px;
+}
+
+.topo-modal {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.topo-modal i {
+    font-size: 20px;
+    border-radius: 50px;
+    padding: 3px;
+    transition: .5s;
+}
+
+.topo-modal i:hover {
+    background-color: rgba(128, 128, 128, 0.356);
+}

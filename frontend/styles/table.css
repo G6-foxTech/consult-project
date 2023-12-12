@@ -9,7 +9,11 @@ table {
 }
 
 th {
-    
+    background-color: white;
+}
+
+td {
+    background-color: rgb(238, 234, 234);
 }
     
 th, td {
@@ -24,4 +28,8 @@ th {
     
 tr:nth-child(even) {
     background-color: #DCEBE6;
+}
+
+#table-container {
+    margin-top: 50px;
 }
