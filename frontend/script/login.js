@@ -2,14 +2,6 @@ async function submitLoginForm() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    let id = document.getElementById("id").value;
-    let logradouro = document.getElementById("logradouro").value;
-    let bairro = document.getElementById("bairro").value;
-    let cidade = document.getElementById("cidade").value;
-    let complemento = document.getElementById("complemento").value;
-    let uf = document.getElementById("uf").value;
-    let numero = document.getElementById("numero").value;
-
     // Construir objeto de dados
     let data = {
         usuario: username,
@@ -32,7 +24,7 @@ async function submitLoginForm() {
             }
         })
         .catch((error) => {
-           alert("Erro no cadastro: Usuário existe!");
+           alert("Erro no cadastro: Usuário inexistente!");
            console.log(error);
         });
 }

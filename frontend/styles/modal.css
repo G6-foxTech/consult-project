@@ -41,7 +41,7 @@
     background-color: white;
     width: 500px;
     height: auto;
-    padding: 50px;
+    padding: 10px;
     border-radius: 20px;
 }
 
@@ -51,6 +51,7 @@
 
 .container-modal form {
     margin-top: 20px;
+    padding: 0 20px;
     width: 100%;
 }
 

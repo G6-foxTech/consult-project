@@ -32,4 +32,17 @@ tr:nth-child(even) {
 
 #table-container {
     margin-top: 50px;
+    padding: 0 50px;
+    overflow-x: hidden;
+}
+
+.table {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 1000px) {
+    #table-container {
+        overflow-x: scroll;
+    }
 }
