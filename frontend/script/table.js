@@ -1,6 +1,11 @@
 $(document).ready(function() {
   const token = localStorage.getItem('token');
   const tableContainer = $('#table-container');
+  const  cadButton = document.querySelector('.cadastro-crud');
+
+  if(!token) {
+    cadButton.innerHTML='';
+  }
 
   if (token) {
     $.ajax({
