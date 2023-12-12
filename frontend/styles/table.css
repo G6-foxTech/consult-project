@@ -33,7 +33,7 @@ tr:nth-child(even) {
 #table-container {
     margin-top: 50px;
     padding: 0 50px;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .table {
