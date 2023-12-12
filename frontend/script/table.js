@@ -41,7 +41,7 @@ $(document).ready(function() {
                     <td class="editable" data-field="cep">${item.cep}</td>
                     <td class="editable" data-field="uf">${item.uf}</td>
                     <td><i class="ri-pencil-line edit-btn"></i></td>
-                    <td><i class="ri-delete-bin-line"></i></td>
+                    <td><i class="ri-delete-bin-line delete-btn"></i></td>
                   </tr>`;
       tbody.append(row);
     });
@@ -49,6 +49,11 @@ $(document).ready(function() {
     $('.edit-btn').on('click', function() {
       const row = $(this).closest('tr');
       toggleEditMode(row);
+    });
+
+    $('.delete-btn').on('click', function() {
+      const row = $(this).closest('tr');
+      deleteItem(row);
     });
   }
 
@@ -125,5 +130,39 @@ $(document).ready(function() {
           // Altera o ícone para voltar ao modo de leitura
           checkIcon.removeClass('ri-check-line').addClass('ri-pencil-line');
       }
+  }
+
+  function deleteItem(row) {
+    const idEndereco = row.find('#id_endereco').text();
+
+    if (confirm('Deseja realmente excluir este item?')) {
+      $.ajax({
+        url: `https://health-dhbx.onrender.com/endereco/${idEndereco}`,
+        type: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        success: function(response) {
+          alert('Item excluído com sucesso.');
+          console.log(response);
+          $.ajax({
+            url: 'https://health-dhbx.onrender.com/endereco',
+            type: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            },
+            success: function(data) {
+              populateTable(data);
+            },
+            error: function(error) {
+              console.error('Erro na requisição:', error);
+            }
+          });
+        },
+        error: function(error) {
+          console.error('Erro na exclusão:', error);
+        }
+      });
+    }
   }
 });
