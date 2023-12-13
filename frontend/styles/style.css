@@ -15,8 +15,18 @@ header {
     width: 100%;
 }
 
+#header-login {
+    position: absolute;
+}
+
 header img {
     padding: 10px;
+    border-radius: 50px;
+    transition: .5s;
+}
+
+header img:hover {
+    background-color: #54555525;
 }
 
 .hr {
@@ -76,6 +86,15 @@ header img {
     overflow: hidden;
 }
 
+.container-login {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .conta {
     color: black;
     text-decoration: none;
@@ -91,6 +110,11 @@ header img {
     font-weight: 700;    
 }
 
+.btn-login {
+    margin-top: 20px !important;
+    margin-bottom: 5px !important;
+}
+
 @media (min-width: 1444px) {
     .img img {
         height: 100vh;
@@ -104,9 +128,13 @@ header img {
         gap: 160px;
     }
 
+    .container-login {
+        flex-direction: row;
+        gap: 50px;
+    }
+
     .card {
         position: absolute;
-        margin-left: 150px;
         width: 264px;
     }
 
