@@ -18,4 +18,14 @@ if(window.innerWidth >= 1200) {
     inovacao.setAttribute('src', '../img/desktop/Inovação.png');
     cuidado.setAttribute('src', '../img/desktop/Cuidado.png');
 
+} else {
+    quemSomos.setAttribute('src', '../img/mobile/Quem somos_.png');
+    missao.setAttribute('src', '../img/mobile/Missão.png');
+    objetivos.setAttribute('src', '../img/mobile/Objetivos.png');
+    excelencia.setAttribute('src', '../img/mobile/Excelência.png');
+    colaboracao.setAttribute('src', '../img/mobile/Colaboração.png');
+    transparencia.setAttribute('src', '../img/mobile/Transparencia.png')
+    inovacao.setAttribute('src', '../img/mobile/Inovação.png');
+    cuidado.setAttribute('src', '../img/mobile/Cuidado.png');
+
 }

@@ -28,3 +28,12 @@ async function submitLoginForm() {
            console.log(error);
         });
 }
+
+const imgLogin = document.querySelector('.img img')
+
+if(window.innerWidth >= 1200) {
+ 
+    imgLogin.setAttribute('src', '../img/desktop/desktop-login.png')
+} else {
+    imgLogin.setAttribute('src', '../img/mobile/mobile-login.png')
+}
