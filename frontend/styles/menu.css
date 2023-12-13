@@ -207,9 +207,6 @@ i.ri-close-circle-line:hover {
         align-items: center;
     }
 
-    nav {
-        margin-left: -60px;
-    }
 
     .logo {
         width: 56px;
@@ -219,11 +216,14 @@ i.ri-close-circle-line:hover {
         opacity: 1;
         visibility: visible;
         top: 0;
+        width: 70%;
+        align-items: center;
+        justify-content: space-between;
     }
 
     nav .menu ul {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
     }
 
