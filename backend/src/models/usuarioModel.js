@@ -20,12 +20,20 @@ class tbl_usuario extends Model {
             senha: {
                 type: DataTypes.STRING,
                 allowNull: false
+            },
+            email: {
+                type: DataTypes.STRING(50),
+                allowNull: false
             }
         }, {
             sequelize,
             tableName: 'tbl_usuario',
             timestamps: false,
         });
+    }
+
+    static associate(models) {
+        this.belongsTo(models.tbl_nivel_acesso , { foreignKey: 'id_nivel_acesso', as: 'fk_usuario_NivelACesso_1' });
     }
 }
 

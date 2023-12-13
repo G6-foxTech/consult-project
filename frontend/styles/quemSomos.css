@@ -1,0 +1,61 @@
+main {
+  width: 100%;
+}
+
+.container-quemSomos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 37px;
+  padding-bottom: 63px;
+}
+
+.col-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 37px;
+}
+
+.container-valores {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), rgba(34, 196, 216, 0.40);
+  width: 100%;
+  padding: 77px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 37px;
+}
+
+.container-valor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 37px;
+}
+
+.title-valor {
+  color: white;
+  font-weight: 700;
+}
+
+@media (min-width: 1200px) {
+
+  .container-quemSomos {
+    flex-direction: row;
+  }
+  
+  .container-valor {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-valor .col-img {
+    flex-direction: row;
+  }
+
+ 
+}

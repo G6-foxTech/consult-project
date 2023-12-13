@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../styles/menu.css">
+    <link rel="stylesheet" href="../styles/table.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <title>Crud Endereço</title>
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <a href="#"><img class="logo" src="../img/Fox tech logo 1.svg" alt="logo fox tech"></a>
+            <div class="menu">
+                <ul class="grid">
+                    
+                        <li class="item-menu"><a class="title" href="#">HOME</a></li>
+                        <li class="item-menu active"><a class="title" href="./crudEdereco.html">CRUD</a></li>
+                        <li class="item-menu"><a class="title" href="./quemSomos.html">QUEM SOMOS?</a></li>
+                    
+                        <li>
+                            <div class="button">
+                                <a href="./login.html" class="btn">LOGIN</a>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+
+            <i class="toggle ri-menu-line"></i>
+            <i class="toggle ri-close-circle-line"></i>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cadastro-crud">
+            <a href="#">Cadastrar Endereço</a>
+        </div>
+
+        <div class="table">
+            <div id="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">número</th>
+                            <th scope="col">logradouro</th>
+                            <th scope="col">bairro</th>
+                            <th scope="col">cidade</th>
+                            <th scope="col">complemento</th>
+                            <th scope="col">cep</th>
+                            <th scope="col">estado</th>
+                            <th scope="col">editar</th>
+                            <th scope="col">excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="container-modal">
+                <div class="topo-modal">
+                    <i class="ri-close-line"></i>
+                </div>
+                <h2>CADASTRO DE ENDEREÇO</h2>
+
+                <form action="post">
+
+                    <div class="campo">
+                        <label for="cep">CEP:</label>
+                        <input id="cep" type="text" maxlength="8" onchange="consultaCEP(this.value)">
+                    </div>
+
+                    <div class="campo">
+                        <label for="logradouro">Logradouro:</label>
+                        <input id="logradouro" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="bairro">Bairro:</label>
+                        <input id="bairro" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="cidade">Cidade:</label>
+                        <input id="cidade" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="complemento">Complemento:</label>
+                        <input id="complemento" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="uf">Estado:</label>
+                        <input id="uf" type="text">
+                    </div>
+
+                    <div class="campo">
+                        <label for="numero">Número:</label>
+                        <input id="numero" type="text">
+                    </div>
+
+                    <div class="campo btn">
+                        <a href="#" id="cadastro" onclick="submitCadastroEndereco()">CADASTRAR</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+    <script src="../script/menu.js"></script>
+    <script src="../script/table.js"></script>
+    <script src="../script/modal.js"></script>
+</body>
+</html> 

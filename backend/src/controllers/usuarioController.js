@@ -19,7 +19,7 @@ module.exports = {
     },
     
     async create(req, res) {
-        const { usuario, nome, senha,  } = req.body;
+        const { usuario, nome, senha, email } = req.body;
 
         let createusuario;
 
@@ -30,7 +30,8 @@ module.exports = {
 
         let passwordHash = await bcrypt.hash(senha, 12);
 
-        createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash });
+        createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash, email });
+        
 
         return res.status(201).json(createusuario);
     },
@@ -51,18 +52,18 @@ module.exports = {
     async update(req, res) {
         
         const Op = Sequelize.Op;
-        const { usuario, nome, senha } = req.body;
+        const { usuario, nome, senha, email } = req.body;
         const id = req.params.id_usuario;
         let passwordHash = await bcrypt.hash(senha, 12);
 
         try {
-        
+
             if(!(await usuarioModel.findOne(usuario))) {
                 return res.status(400).json({ error: 'Usuario já cadastrado.' }); 
             }
 
             await usuarioModel.update(
-                { usuario, nome, senha: passwordHash  }, 
+                { usuario, nome, senha: passwordHash, email }, 
                 { where: {id_usuario: {[Op.eq]: id}}});
            
             return res.json({message: 'usuario atualizado com sucesso'});

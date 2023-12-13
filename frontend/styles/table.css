@@ -1,0 +1,48 @@
+
+table, th, td {
+    border: 1px solid black;
+}
+    
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+th {
+    background-color: white;
+}
+
+td {
+    background-color: rgb(238, 234, 234);
+}
+    
+th, td {
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+}
+    
+th {
+    font-weight: bold;
+} 
+    
+tr:nth-child(even) {
+    background-color: #DCEBE6;
+}
+
+#table-container {
+    margin-top: 50px;
+    padding: 0 50px;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 1000px) {
+    #table-container {
+        overflow-x: scroll;
+    }
+}
