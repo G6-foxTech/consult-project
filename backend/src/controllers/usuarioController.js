@@ -1,6 +1,5 @@
 const usuarioModel = require('../models/usuarioModel');
 const bcrypt = require('bcrypt');
-const nivelAcessoModel = require('../models/nivelAcessoModel');
 const Sequelize = require('sequelize');
 
 module.exports = {
