@@ -8,14 +8,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <title>Cadastro - HealthRent</title>
     <link href="../styles/custom.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="bg-img-cadastro">
+    <header>
+        <img src="../img/Fox tech logo 1.svg" alt="logo Fox Tech">
+        <div class="hr"></div>
+    </header>
+    <div class="container-cadastro">
+        <div class="img">
+            <img src="" alt="">
+        </div>
         <div class="container p-4">
-            <div class="card mt-3 text-center position-absolute top-50 end-50 translate-middle rounded-5 shadow">
+            <div class="card mt-3 text-center rounded-5 shadow">
                 <div class="card-body">
                     <h5 class="card-title">CADASTRO</h5>
                     <!-- <div class="text-center mb-2">
@@ -29,22 +41,31 @@
                         <span class="input-group-text bi bi-person"></span>
                         <input id="name" type="nome" class="form-control" placeholder="Nome completo">
                     </div>
+
+                    <div class="input-group mb-2">
+                        <span class="input-group-text bi bi-person"></span>
+                        <input id="username" type="username" class="form-control" placeholder="Usuário">
+                    </div>
                     <!-- <div class="input-group mb-2">
                         <span class="input-group-text bi bi-person-vcard"></span>
                         <input id="cpf" class="form-control" placeholder="CPF/CNPJ">
                     </div> -->
+
                     <div class="input-group mb-2">
                         <span class="input-group-text bi bi-envelope"></span>
-                        <input id="username" type="email" class="form-control" placeholder="nome@examplo.com">
+                        <input id="email" type="email" class="form-control" placeholder="nome@examplo.com">
                     </div>
+
                     <!-- <div class="input-group mb-2">
                         <span class="input-group-text bi bi-envelope"></span>
                         <input type="email" class="form-control" placeholder="nome@examplo.com">
                     </div> -->
+
                     <div class="input-group mb-2">
                         <span class="input-group-text bi bi-lock"></span>
                         <input id="password" type="password" class="form-control" placeholder="Senha">
                     </div>
+
                     <!-- <div class="input-group mb-2">
                         <span class="input-group-text bi bi-lock"></span>
                         <input type="password" class="form-control" placeholder="Senha novamente">
@@ -61,10 +82,11 @@
                         <span class="input-group-text bi bi-building"></span>
                         <input type="email" class="form-control" placeholder="Empresa">
                 </div> -->
+
                     <a href="#" onclick="submitCadastroForm()"
                         class="btn btn-primary mt-1 mb-1 border border-0 rounded-pill">Cadastrar</a>
                     <div>
-                        <a href="./login.html">Já tenho conta.</a>
+                        <a class="conta" href="./login.html">Já tenho conta.</a>
                     </div>
                 </div>
             </div>
