@@ -21,9 +21,9 @@ class tbl_usuario extends Model {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            id_nivel_acesso: {
-                type: DataTypes.INTEGER,
-                allowNull: true
+            email: {
+                type: DataTypes.STRING(50),
+                allowNull: false
             }
         }, {
             sequelize,
@@ -32,9 +32,7 @@ class tbl_usuario extends Model {
         });
     }
 
-    static associate(models) {
-        this.belongsTo(models.tbl_nivel_acesso , { foreignKey: 'id_nivel_acesso', as: 'fk_usuario_NivelACesso_1' });
-    }
+    
 }
 
 module.exports = tbl_usuario;

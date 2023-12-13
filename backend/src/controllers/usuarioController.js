@@ -20,13 +20,9 @@ module.exports = {
     },
     
     async create(req, res) {
-        const { usuario, nome, senha, id_nivel_acesso } = req.body;
+        const { usuario, nome, senha, email } = req.body;
 
         let createusuario;
-
-        if(!(await nivelAcessoModel.findByPk(id_nivel_acesso))) {
-            return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
-        }
 
         const verificarUsuario = await usuarioModel.findOne({ where: { usuario: usuario }});
         if(verificarUsuario) {
@@ -35,7 +31,7 @@ module.exports = {
 
         let passwordHash = await bcrypt.hash(senha, 12);
 
-        createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash, id_nivel_acesso });
+        createusuario = await usuarioModel.create({ usuario, nome, senha: passwordHash, email });
         
 
         return res.status(201).json(createusuario);
@@ -57,22 +53,18 @@ module.exports = {
     async update(req, res) {
         
         const Op = Sequelize.Op;
-        const { usuario, nome, senha, id_nivel_acesso } = req.body;
+        const { usuario, nome, senha, email } = req.body;
         const id = req.params.id_usuario;
         let passwordHash = await bcrypt.hash(senha, 12);
 
         try {
 
-            if(!(await nivelAcessoModel.findByPk(id_nivel_acesso))) {
-                return res.status(400).json({ error: 'Nivel de Acesso não existe.' }); 
-            }
-        
             if(!(await usuarioModel.findOne(usuario))) {
                 return res.status(400).json({ error: 'Usuario já cadastrado.' }); 
             }
 
             await usuarioModel.update(
-                { usuario, nome, senha: passwordHash, id_nivel_acesso }, 
+                { usuario, nome, senha: passwordHash, email }, 
                 { where: {id_usuario: {[Op.eq]: id}}});
            
             return res.json({message: 'usuario atualizado com sucesso'});
