@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins';
 }
 
 ul {
@@ -74,14 +75,20 @@ nav ul li.item-menu a {
 }
 
 nav ul li.item-menu a:hover {
-    color: #A38C18;
+    color: #f7d00d;
+;
+}
+
+nav ul li.active a {
+    color: #f7d00d;
 }
 
 nav ul li.item-menu a::after {
     content: '';
     width: 0%;
     height: 2px;
-    background-color: #A38C18;
+    background-color: #f7d00d;
+;
 
     position: absolute;
     left: 0;
@@ -108,7 +115,7 @@ nav .menu ul {
 nav.show .menu {
     opacity: 1;
     visibility: visible;
-    background-image: url("../img/background-menu-mobile.png");
+    background-image: url("../img/mobile/background-menu-mobile.png");
     background-repeat: no-repeat;
     background-size: cover;
 

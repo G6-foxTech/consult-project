@@ -1,188 +1,61 @@
-html, body {
-  height: 100%;
-  background-color: #D8EAEE;
-  font-family: 'Poppins';
-  box-sizing: border-box;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center a {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 25px;
-}
-
-.center a.ativo {
-  color: #FFD600;
-  text-decoration: none;
-  border-bottom: 3px solid #FFD600;
-}
-
-.login-btn {
-  position: absolute;
-  right: 20px;
-  width: 154px;
-  height: 42px;
-  background: #81D1DB;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  border: none;
-  color: #000000;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-
-.ellipse {
-  width: 608px;
-  height: 631px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: linear-gradient(0deg, rgba(34, 195, 215, 0.4) 0%, rgba(34, 195, 215, 0.4) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
-  border-radius: 9999px;
-  overflow: hidden;
-}
-
-.ellipse img {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1; /* Certifique-se de que a imagem esteja acima do fundo do círculo */
-  opacity: 0.5;
-}
-
-.title-ellipse {
-  left: 185px;
-  top: 95px;
-  position: absolute;
-  color: white;
-  font-size: 32px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  z-index: 2;
-}
-
-.welcome-text {
-  width: 546px;
-  height: 194px;
-  left: 43px;
-  top: 230px;
-  position: absolute;
-  color: white;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  z-index: 2;
-}
-
-.mission-container {
-  width: 569px;
-  height: 295px;
-  left: 735px;
-  top: 50px;
-  position: absolute;
-}
-
-.background {
-  width: 569px;
-  height: 295px;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: linear-gradient(0deg, rgba(34, 196, 216, 0.40) 0%, rgba(34, 196, 216, 0.40) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
-  border-radius: 50px;
-}
-
-.title2 {
-  width: 128.81px;
-  left: 220.09px;
-  top: 18px;
-  position: absolute;
-  color: white;
-  font-size: 32px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-wrap: break-word;
-}
-
-.content {
-  width: 517.27px;
-  left: 33.47px;
-  top: 78px;
-  position: absolute;
-  color: white;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-wrap: break-word;
-}
-
-.objectives-container {
-  width: 561px;
-  height: 295px;
-  left: 743px;
-  top: 400px;
-  position: absolute;
-}
-
-.rectangle {
-  width: 561px;
-  height: 295px;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: linear-gradient(0deg, rgba(34, 196, 216, 0.40) 0%, rgba(34, 196, 216, 0.40) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
-  border-radius: 50px;
-}
-
-.title3 {
-  width: 185px;
-  height: 37px;
-  left: 188px;
-  top: 10px;
-  position: absolute;
-  color: white;
-  font-size: 32px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-wrap: break-word;
-}
-
-.content2 {
-  width: 510px;
-  left: 33px;
-  top: 78px;
-  position: absolute;
-  color: white;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-wrap: break-word;
-}
-
-.container-quem-somos {
-  position: absolute;
-}
-
 main {
   width: 100%;
+}
+
+.container-quemSomos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 37px;
+  padding-bottom: 63px;
+}
+
+.col-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 37px;
+}
+
+.container-valores {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), rgba(34, 196, 216, 0.40);
+  width: 100%;
+  padding: 77px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 37px;
+}
+
+.container-valor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 37px;
+}
+
+.title-valor {
+  color: white;
+  font-weight: 700;
+}
+
+@media (min-width: 1200px) {
+
+  .container-quemSomos {
+    flex-direction: row;
+  }
+  
+  .container-valor {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-valor .col-img {
+    flex-direction: row;
+  }
+
+ 
 }
