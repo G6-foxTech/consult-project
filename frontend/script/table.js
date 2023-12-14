@@ -171,3 +171,8 @@ $(document).ready(function() {
     }
   }
 });
+
+export default  {
+  populateTable,
+  showLoginMessage
+};

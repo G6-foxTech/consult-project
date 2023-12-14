@@ -1,6 +1,7 @@
 const modal = document.querySelector('.modal');
 const cadastroEndereco = document.querySelector('.cadastro-crud a')
 const closeModal = document.querySelector('.topo-modal i')
+import table from "./table";
 
 cadastroEndereco.addEventListener('click', () => {
     if(!modal.classList.contains('show-modal')) {
@@ -55,6 +56,20 @@ function submitCadastroEndereco() {
             if(modal.classList.contains('show-modal')) {
               modal.classList.remove('show-modal');
             }
+            $.ajax({
+              url: 'https://health-dhbx.onrender.com/endereco',
+              type: 'GET',
+              headers: {
+                'Authorization': `Bearer ${token}`
+              },
+              success: function(data) {
+                table.populateTable(data);
+              },
+              error: function(error) {
+                console.error('Erro na requisição:', error);
+                table.showLoginMessage();
+              }
+            });
             console.log(data);
     
         })
