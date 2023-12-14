@@ -60,16 +60,15 @@ function submitCadastroEndereco() {
               url: 'https://health-dhbx.onrender.com/endereco',
               type: 'GET',
               headers: {
-                'Authorization': `Bearer ${token}`
+                  'Authorization': `Bearer ${token}`
               },
               success: function(data) {
-                table.populateTable(data);
+                  populateTable(data);
               },
               error: function(error) {
-                console.error('Erro na requisição:', error);
-                table.showLoginMessage();
+                  console.error('Erro na requisição:', error);
               }
-            });
+          });
             console.log(data);
     
         })
