@@ -57,6 +57,16 @@ header img:hover {
     color: white !important;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #33333331;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
 /*.bg-img-login {
     background: url("../img/img_11.png") no-repeat center left fixed;
     background-size: 50% 100%; 
