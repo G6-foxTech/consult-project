@@ -77,45 +77,53 @@
                 </div>
                 <h2>CADASTRO DE ENDEREÇO</h2>
 
-                <form action="post">
+                <form id="form" action="post">
 
                     <div class="campo">
                         <label for="cep">CEP:</label>
                         <input id="cep" type="text" maxlength="8" onchange="consultaCEP(this.value)">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo">
                         <label for="logradouro">Logradouro:</label>
                         <input id="logradouro" type="text">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo">
                         <label for="bairro">Bairro:</label>
                         <input id="bairro" type="text">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo">
                         <label for="cidade">Cidade:</label>
                         <input id="cidade" type="text">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo">
                         <label for="complemento">Complemento:</label>
                         <input id="complemento" type="text">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo">
                         <label for="uf">Estado:</label>
                         <input id="uf" type="text">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo">
                         <label for="numero">Número:</label>
                         <input id="numero" type="text">
+                        <div class="error"></div>
                     </div>
 
                     <div class="campo btn">
-                        <a href="#" id="cadastro" onclick="submitCadastroEndereco()">CADASTRAR</a>
+                       <!-- <a href="#" id="cadastro" onclick="submitCadastroEndereco()">CADASTRAR</a> -->
+                       <a href="#" id="cadastro">CADASTRAR</a>
                     </div>
                 </form>
             </div>
