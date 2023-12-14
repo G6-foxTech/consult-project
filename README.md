@@ -1,10 +1,1 @@
-<<<<<<< HEAD
-# consult-project
-=======
-# consult-project
-<<<<<<< HEAD
- 
-=======
- 
->>>>>>> configurable_endereco
->>>>>>> develop
+# Full-Stack project developed by the FoxTech team.
