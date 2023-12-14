@@ -1,9 +1,13 @@
-
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
 }
-    
+
 table {
+    border: 1px solid black;
+    border-radius: 20px;
+    overflow: hidden;
     border-collapse: collapse;
     margin: auto;
 }
@@ -13,21 +17,22 @@ th {
 }
 
 td {
-    background-color: rgb(238, 234, 234);
+    background-color: #fffef4;
 }
-    
-th, td {
+
+th,
+td {
     padding: 10px;
     text-align: center;
     width: 120px;
 }
-    
+
 th {
     font-weight: bold;
-} 
-    
+}
+
 tr:nth-child(even) {
-    background-color: #DCEBE6;
+    background-color: #dcebe6;
 }
 
 #table-container {
