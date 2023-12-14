@@ -71,7 +71,23 @@
 
 <script src="../script/menu.js"></script>
 <script src="../script/quemSomos.js"></script>
+<script src="../script/scrollReveal.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 
+<script>
+  const sr = ScrollReveal()
+
+  sr.reveal('.quemSomos', { origin: 'left', distance: '60px', duration: 1000, delay: 800});
+  sr.reveal('.missao', { origin: 'right', distance: '60px', duration: 2000, delay: 800});
+  sr.reveal('.objetivo', { origin: 'right', distance: '60px', duration: 2500, delay: 1000});
+  sr.reveal('.excelencia', { origin: 'left', distance: '60px', duration: 2500, delay: 1000});
+  sr.reveal('.colaboracao', { origin: 'top', distance: '60px', duration: 2500, delay: 1000});
+  sr.reveal('.transparencia', { origin: 'right', distance: '60px', duration: 2500, delay: 1000});
+  sr.reveal('.inovacao', { origin: 'left', distance: '60px', duration: 2500, delay: 1000});
+  sr.reveal('.cuidado', { origin: 'right', distance: '60px', duration: 2500, delay: 1000});
+
+
+
+</script>
 </body>
-
 </html>

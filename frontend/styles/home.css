@@ -22,6 +22,15 @@ main h1 span {
     color: rgb(202, 140, 24);
 }
 
+h1 img {
+    transform: translateY(2px);
+    transition: .5s;
+}
+
+h1 img:hover {
+    transform: translateY(0);
+}
+
 .btn a {
     color: black;
     font-size: 20px;
