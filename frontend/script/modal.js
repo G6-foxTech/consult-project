@@ -52,6 +52,9 @@ function submitCadastroEndereco() {
         .then((response) => response.json())
         .then((data) => {
             alert('Cadastro realizado com sucesso!');
+            if(modal.classList.contains('show-modal')) {
+              modal.classList.remove('show-modal');
+            }
             console.log(data);
     
         })
