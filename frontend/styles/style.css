@@ -4,11 +4,11 @@ html {
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: #D8EAEE !important;
+    background-color: #d8eaee !important;
 }
 
 header {
@@ -22,7 +22,7 @@ header {
 header img {
     padding: 10px;
     border-radius: 50px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 header img:hover {
@@ -30,7 +30,7 @@ header img:hover {
 }
 
 .hr {
-    border-top: 1px solid rgba(0, 0, 0, .3); 
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,14 +48,14 @@ header img:hover {
     color: black !important;
     font-weight: 700 !important;
     text-align: center;
-    transition: .5s !important;
+    transition: 0.5s !important;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .btn:hover {
     background: #008489 !important;
     color: white !important;
-}  
+}
 
 /*.bg-img-login {
     background: url("../img/img_11.png") no-repeat center left fixed;
@@ -98,7 +98,7 @@ header img:hover {
 .conta {
     color: black;
     text-decoration: none;
-    transition: .5s;
+    transition: 0.5s;
     padding-top: 10px !important;
 }
 
@@ -107,7 +107,7 @@ header img:hover {
 }
 
 .card-title {
-    font-weight: 700;    
+    font-weight: 700;
 }
 
 .btn-login {
@@ -115,14 +115,35 @@ header img:hover {
     margin-bottom: 5px !important;
 }
 
+.left-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-login {
+    margin-right: 50px;
+}
+
+.card-cadastro {
+    margin-left: 160px;
+}
+
 @media (min-width: 1444px) {
     .img img {
         height: 100vh;
     }
-} 
+}
 
 @media (min-width: 1200px) {
-
     .container-cadastro {
         flex-direction: row-reverse;
         gap: 160px;
@@ -147,8 +168,7 @@ header img:hover {
     }
 }
 
-@media  (min-width: 720px) and (max-width: 1000px){
-
+@media (min-width: 720px) and (max-width: 1000px) {
     .img img {
         width: 1500px;
     }
